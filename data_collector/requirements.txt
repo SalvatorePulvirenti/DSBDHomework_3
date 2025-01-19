@@ -1,0 +1,7 @@
+prometheus-client
+grpcio==1.68.0
+grpcio-tools==1.68.0
+mysql-connector-python==8.0.15
+yfinance==0.2.50
+confluent-kafka
+
