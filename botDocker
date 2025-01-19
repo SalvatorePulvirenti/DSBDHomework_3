@@ -1,0 +1,12 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+COPY /alerttonotifier/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+RUN pip install python-telegram-bot[job-queue]
+
+COPY /alerttonotifier/alerttonotifier.py .
+
+CMD ["python","-u", "alerttonotifier.py"]

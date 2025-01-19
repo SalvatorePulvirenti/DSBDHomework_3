@@ -1,0 +1,21 @@
+# Usa un'immagine base ufficiale di Python
+FROM python:3.10-slim
+
+# Imposta la directory di lavoro all'interno del container
+WORKDIR /app
+
+# Copia i file necessari nell'immagine
+COPY /data_collector/data_collector_CB.py .
+COPY /data_collector/circuit_breaker.py .
+COPY /data_collector/requirements.txt .
+COPY /CQRS/CQRS.py .
+
+# Installa le dipendenze necessarie
+RUN pip install --no-cache-dir -r requirements.txt
+
+
+# Espone la porta per il server gRPC
+
+
+# Comando per avviare l'applicazione
+CMD ["python", "-u","data_collector_CB.py"]
