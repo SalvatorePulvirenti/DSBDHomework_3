@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alerttonofier
+  labels: 
+    app: alerttonofier
+spec:
+  replicas: 1
+  selector:
+    matchlabels:
+      app: alerttonofier
+  template:
+    metadata:
+      labels:
+        app: alerttonofier
+    spec:
+      containers:
+        - image: pulvirenti300666/dsbd_repo/alerttonofierimage
+          name: servergrpc
+          ports:
+            - containerPort: 50051
+      restartPolicy: Always
