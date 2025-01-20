@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: datacollector
+  name: datacollector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: datacollector
+  template:
+    metadata:
+      labels:
+        app: datacollector
+    spec:
+      containers:
+        - image: pulvirenti30666/dsbd_repo/datacollectorimage
+          name: datacollector
+      restartPolicy: Always
+
